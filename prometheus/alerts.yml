@@ -1,0 +1,10 @@
+groups:
+  - name: nutanix-vm-alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: nutanix_vm_hypervisor_cpu_usage_ppm > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          description: "High CPU usage on VM {{ $labels.vm }}"
