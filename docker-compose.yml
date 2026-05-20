@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  nutanix_exporter_dc1:
+    image: johnnyxiao/nutanix-exporter:latest
+    container_name: nutanix_exporter_dc1
+    env_file:
+      - ./DC1.env
+    ports:
+      - "9409:8000"
+    restart: unless-stopped
+
+  nutanix_exporter_dc2:
+    image: johnnyxiao/nutanix-exporter:latest
+    container_name: nutanix_exporter_dc2
+    env_file:
+      - ./DC2.env
+    ports:
+      - "9410:8000"
+    restart: unless-stopped
